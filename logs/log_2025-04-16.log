@@ -1,1 +1,20 @@
 2025-04-16 02:03:11,073 - INFO - __main__ - this was a good file execution
+2025-04-16 03:43:29,336 - INFO - utils.common_funtion - Successfully read the YAML file
+2025-04-16 03:43:29,336 - INFO - __main__ - Data ingestion started with reservation-prediction-0001 with  filename Hotel_Reservations.csv
+2025-04-16 03:43:29,336 - INFO - __main__ - Starting Data Ingestion process
+2025-04-16 03:43:32,344 - WARNING - google.auth.compute_engine._metadata - Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2025-04-16 03:43:36,253 - WARNING - google.auth.compute_engine._metadata - Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2025-04-16 03:43:38,445 - WARNING - google.auth.compute_engine._metadata - Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: [Errno 50] Network is down
+2025-04-16 03:43:38,446 - WARNING - google.auth._default - Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2025-04-16 03:43:38,446 - ERROR - __main__ - Error while downloading the csv file
+2025-04-16 03:43:38,446 - ERROR - __main__ - Custom Exception : 'DefaultCredentialsError' object has no attribute 'exc_info'
+2025-04-16 03:43:38,446 - INFO - __main__ - Data Ingestion completed
+2025-04-16 03:50:25,451 - INFO - utils.common_funtion - Successfully read the YAML file
+2025-04-16 03:50:25,453 - INFO - __main__ - Data ingestion started with reservation-prediction-0001 with  filename Hotel_Reservations.csv
+2025-04-16 03:50:25,453 - INFO - __main__ - Starting Data Ingestion process
+2025-04-16 03:50:27,481 - INFO - __main__ - Raw file is successfully doenloaded to artifacts/raw/raw.csv
+2025-04-16 03:50:27,481 - INFO - __main__ - Staring the spliting process
+2025-04-16 03:50:27,671 - INFO - __main__ - Train data saved to artifacts/raw/train.csv
+2025-04-16 03:50:27,692 - INFO - __main__ - Test data saved to artifacts/raw/test.csv
+2025-04-16 03:50:27,694 - INFO - __main__ - Data Ingestion completed successfully
+2025-04-16 03:50:27,694 - INFO - __main__ - Data Ingestion completed
