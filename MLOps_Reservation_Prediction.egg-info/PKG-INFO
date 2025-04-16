@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: MLOps-Reservation-Prediction
+Version: 0.0.1
+Author: Chandan Mohan
+Author-email: chandan.mohan@gwu.edu
+Requires-Dist: pandas
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
