@@ -1,4 +1,4 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: MLOps-Reservation-Prediction
 Version: 0.0.1
 Author: Chandan Mohan
@@ -8,6 +8,4 @@ Requires-Dist: numpy
 Requires-Dist: google-cloud-storage
 Requires-Dist: scikit-learn
 Requires-Dist: pyyaml
-Dynamic: author
-Dynamic: author-email
-Dynamic: requires-dist
+Requires-Dist: imbalanced-learn
