@@ -125,6 +125,53 @@ class DataProcessor:
         except Exception as e:
             logger.info(f"Error during feature selection step {e}")
             raise CustomException("Error while feature selection", e)
+        
+    def save_data(self, df, file_path):
+
+        try:
+            logger.info("saving the data in a processed folder")
+
+            df.to_csv(file_path, index = False)
+
+            logger.info(f"Data saved succesfully to {file_path}")
+        
+        except Exception as e:
+            logger.info(f"Error during saving data {e}")
+            raise CustomException("Error while saving data", e)
+        
+    def process(self):
+
+        try:
+
+            logger.info("loading data from RAW directory")
+            
+            train_df = load_data(self.train_path)
+            test_df = load_data(self.test_path)
+
+            train_df = self.preprocess_data(train_df)
+            test_df = self.preprocess_data(test_df)
+
+            train_df = self.balance_data(train_df)
+            test_df = self.balance_data(test_df)
+
+            train_df = self.feature_selection(train_df)
+            test_df = test_df[train_df.columns]
+
+            self.save_data(train_df,PROCESSED_TRAIN_DATA_PATH)
+            self.save_data(test_df,PROCESSED_TEST_DATA_PATH)
+
+            logger.info("Data processing completed successfully")
+        
+        except Exception as e:
+            logger.info(f"Error during preprocessing pipeline {e}")
+            raise CustomException("Error while preprocessing data", e)
+        
+
+
+if __name__ == "__main__":
+    processor = DataProcessor(TRAIN_FILE_PATH, TEST_FILE_PATH, PROCESSED_DIR, CONFIG_PATH)
+    processor.process()
+
 
 
 
