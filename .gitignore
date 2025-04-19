@@ -1,3 +1,5 @@
 *.pkl
-*.pkl
-notebook/RandomForestClassifier.pkl
+venv/
+mlruns/
+logs/
+MLOps_Reservation_Prediction.egg-info
