@@ -1,0 +1,45 @@
+2025-04-17 00:56:40,624 - INFO - utils.common_funtion - Successfully read the YAML file
+2025-04-17 00:56:40,625 - INFO - __main__ - self.processed_dir is created
+2025-04-17 00:56:40,625 - INFO - __main__ - loading data from RAW directory
+2025-04-17 00:56:40,625 - INFO - utils.common_funtion - loading data
+2025-04-17 00:56:40,663 - INFO - utils.common_funtion - loading data
+2025-04-17 00:56:40,685 - INFO - __main__ - Starting our Data Processing step
+2025-04-17 00:56:40,685 - INFO - __main__ - dropping columns
+2025-04-17 00:56:40,690 - INFO - __main__ - dropping duplicates
+2025-04-17 00:56:40,701 - INFO - __main__ - fetching columns
+2025-04-17 00:56:40,701 - INFO - __main__ - Applying Lable Encoding
+2025-04-17 00:56:40,710 - INFO - __main__ - label mapping are : 
+2025-04-17 00:56:40,710 - INFO - __main__ - type_of_meal_plan: {'Meal Plan 1': 0, 'Meal Plan 2': 1, 'Meal Plan 3': 2, 'Not Selected': 3}
+2025-04-17 00:56:40,710 - INFO - __main__ - required_car_parking_space: {0: 0, 1: 1}
+2025-04-17 00:56:40,710 - INFO - __main__ - room_type_reserved: {'Room_Type 1': 0, 'Room_Type 2': 1, 'Room_Type 3': 2, 'Room_Type 4': 3, 'Room_Type 5': 4, 'Room_Type 6': 5, 'Room_Type 7': 6}
+2025-04-17 00:56:40,710 - INFO - __main__ - booking_status: {'Canceled': 0, 'Not_Canceled': 1}
+2025-04-17 00:56:40,710 - INFO - __main__ - repeated_guest: {0: 0, 1: 1}
+2025-04-17 00:56:40,710 - INFO - __main__ - market_segment_type: {'Aviation': 0, 'Complementary': 1, 'Corporate': 2, 'Offline': 3, 'Online': 4}
+2025-04-17 00:56:40,710 - INFO - __main__ - Handeling Skewness
+2025-04-17 00:56:40,713 - INFO - __main__ - Starting our Data Processing step
+2025-04-17 00:56:40,713 - INFO - __main__ - dropping columns
+2025-04-17 00:56:40,713 - INFO - __main__ - dropping duplicates
+2025-04-17 00:56:40,716 - INFO - __main__ - fetching columns
+2025-04-17 00:56:40,716 - INFO - __main__ - Applying Lable Encoding
+2025-04-17 00:56:40,719 - INFO - __main__ - label mapping are : 
+2025-04-17 00:56:40,719 - INFO - __main__ - type_of_meal_plan: {'Meal Plan 1': 0, 'Meal Plan 2': 1, 'Meal Plan 3': 2, 'Not Selected': 3}
+2025-04-17 00:56:40,719 - INFO - __main__ - required_car_parking_space: {0: 0, 1: 1}
+2025-04-17 00:56:40,719 - INFO - __main__ - room_type_reserved: {'Room_Type 1': 0, 'Room_Type 2': 1, 'Room_Type 3': 2, 'Room_Type 4': 3, 'Room_Type 5': 4, 'Room_Type 6': 5, 'Room_Type 7': 6}
+2025-04-17 00:56:40,719 - INFO - __main__ - booking_status: {'Canceled': 0, 'Not_Canceled': 1}
+2025-04-17 00:56:40,719 - INFO - __main__ - repeated_guest: {0: 0, 1: 1}
+2025-04-17 00:56:40,719 - INFO - __main__ - market_segment_type: {'Aviation': 0, 'Complementary': 1, 'Corporate': 2, 'Offline': 3, 'Online': 4}
+2025-04-17 00:56:40,719 - INFO - __main__ - Handeling Skewness
+2025-04-17 00:56:40,721 - INFO - __main__ - Handeling Imbalance Data
+2025-04-17 00:56:40,860 - INFO - __main__ - data balanced successfully
+2025-04-17 00:56:40,861 - INFO - __main__ - Handeling Imbalance Data
+2025-04-17 00:56:40,874 - INFO - __main__ - data balanced successfully
+2025-04-17 00:56:40,874 - INFO - __main__ - starting our featear selection step
+2025-04-17 00:56:42,970 - INFO - __main__ - Top 10 feature ['lead_time' 'no_of_special_requests' 'avg_price_per_room' 'arrival_month'
+ 'arrival_date' 'market_segment_type' 'no_of_week_nights'
+ 'no_of_weekend_nights' 'type_of_meal_plan' 'room_type_reserved']
+2025-04-17 00:56:42,971 - INFO - __main__ - Feature selectin completedd successfully
+2025-04-17 00:56:42,975 - INFO - __main__ - saving the data in a processed folder
+2025-04-17 00:56:43,027 - INFO - __main__ - Data saved succesfully to artifacts/processed/processed_train.csv
+2025-04-17 00:56:43,027 - INFO - __main__ - saving the data in a processed folder
+2025-04-17 00:56:43,042 - INFO - __main__ - Data saved succesfully to artifacts/processed/processed_test.csv
+2025-04-17 00:56:43,042 - INFO - __main__ - Data processing completed successfully
