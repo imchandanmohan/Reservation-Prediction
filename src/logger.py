@@ -1,16 +1,20 @@
 import logging
-import os
+from pathlib import Path
 from datetime import datetime
 
-LOGS_DIR = "logs"
-os.makedirs(LOGS_DIR,exist_ok=True)
 
-LOGS_FILE = os.path.join(LOGS_DIR,f"log_{datetime.now().strftime('%Y-%m-%d')}.log")
+BASE_DIR = Path(__file__).resolve().parents[1]
+LOGS_DIR = BASE_DIR / "logs"
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+LOGS_FILE = LOGS_DIR / f"log_{datetime.now().strftime('%Y-%m-%d')}.log"
+
 
 logging.basicConfig(
     filename=LOGS_FILE,
     format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
-    level = logging.INFO
+    level=logging.INFO
 )
 
 def get_logger(name):

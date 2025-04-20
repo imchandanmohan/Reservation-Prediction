@@ -11,6 +11,8 @@ Requires-Dist: pyyaml
 Requires-Dist: imbalanced-learn
 Requires-Dist: lightgbm
 Requires-Dist: mlflow
+Requires-Dist: streamlit
+Requires-Dist: flask
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist
