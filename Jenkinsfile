@@ -20,14 +20,27 @@ pipeline {
             }
         }
 
-        stage('Setting up virtual environment and Installing dependencies') {
+        stage('Setting up virtual environment') {
             steps {
                 script {
-                    echo 'Setting up virtual environment and Installing dependencies...................'
+                    echo 'Setting up virtual environment...................'
                     sh '''
-                        python3 -m venv ${VENV_DIR} && \
-                        . ${VENV_DIR}/bin/activate && \
-                        pip install --upgrade pip && \
+                        python3 -m venv ${VENV_DIR} || python -m venv ${VENV_DIR}
+                        . ${VENV_DIR}/bin/activate
+                        python --version
+                        pip --version
+                    '''
+                }
+            }
+        }
+
+        stage('Installing dependencies') {
+            steps {
+                script {
+                    echo 'Installing dependencies...................'
+                    sh '''
+                        . ${VENV_DIR}/bin/activate
+                        pip install --upgrade pip
                         pip install -e .
                     '''
                 }

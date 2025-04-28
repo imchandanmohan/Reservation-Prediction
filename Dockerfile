@@ -1,22 +1,21 @@
 FROM python:slim
 
-ENV PYTHONDONTWRITEBYTECODE = 1 \
-    PYTHONUNBUFFERED = 1
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-RUN apt-get update && apt-get-install -y --no-install-recommnds \
-    libgomp \
-    && apt-get-clean \
-    $$ rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY . .
 
 RUN pip install --no-cache-dir -e .
 
-RUN python pipline/training_pipeline.py
+# Consider making this optional or conditional
+RUN python pipeline/training_pipeline.py
 
 EXPOSE 5000
 
-CMD ["python","application.py"]
+CMD ["python", "application.py"]
