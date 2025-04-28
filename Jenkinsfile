@@ -1,49 +1,53 @@
 pipeline {
     agent any
     environment {
-        VENV_DIR = "venv"
+        VENV_DIR = "/var/jenkins_home/workspace/venv"
+        PYTHON = "/usr/bin/python3"
     }
 
     stages {
-        stage('Cloning Github repo to Jenkins') {
+        stage('Debug Info') {
             steps {
-                script {
-                    echo 'Cloning Github repo to Jenkins...................'
-                    checkout([$class: 'GitSCM',
-                        branches: [[name: '*/main']],
-                        userRemoteConfigs: [[
-                            credentialsId: 'github_token',
-                            url: 'https://github.com/imchandanmohan/Reservation-Prediction.git'
-                        ]]
-                    ])
-                }
+                sh '''
+                    echo "=== Debug Information ==="
+                    echo "Workspace path: ${WORKSPACE}"
+                    echo "Python path: ${PYTHON}"
+                    echo "Python version:"
+                    ${PYTHON} --version
+                    echo "Workspace permissions:"
+                    ls -ld ${WORKSPACE}
+                    echo "Current user:"
+                    whoami
+                    echo "=== Environment ==="
+                    env
+                '''
             }
         }
 
-        stage('Setting up virtual environment') {
+        stage('Create Virtual Environment') {
             steps {
-                script {
-                    echo 'Setting up virtual environment...................'
-                    sh '''
-                        python3 -m venv ${VENV_DIR} || python -m venv ${VENV_DIR}
-                        . ${VENV_DIR}/bin/activate
-                        python --version
-                        pip --version
-                    '''
-                }
+                sh '''
+                    echo "Creating virtual environment at ${VENV_DIR}"
+                    ${PYTHON} -m venv ${VENV_DIR} && \
+                    echo "Virtual environment created successfully" || \
+                    { echo "Virtual environment creation failed"; exit 1; }
+                    
+                    echo "Verifying venv structure..."
+                    ls -l ${VENV_DIR}/bin
+                '''
             }
         }
 
-        stage('Installing dependencies') {
+        stage('Install Dependencies') {
             steps {
-                script {
-                    echo 'Installing dependencies...................'
-                    sh '''
-                        . ${VENV_DIR}/bin/activate
-                        pip install --upgrade pip
-                        pip install -e .
-                    '''
-                }
+                sh '''
+                    echo "Activating virtual environment and installing dependencies..."
+                    . ${VENV_DIR}/bin/activate && \
+                    pip install --upgrade pip && \
+                    pip install -e . && \
+                    echo "Dependencies installed successfully" || \
+                    { echo "Dependency installation failed"; exit 1; }
+                '''
             }
         }
     }
